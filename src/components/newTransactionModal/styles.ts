@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { darken } from "polished";
 
 export const Container = styled.form`
   h2 {
@@ -31,18 +32,58 @@ export const Container = styled.form`
     width: 100%;
     padding: 0 0.15rem;
     height: 4rem;
-    background: var(--green);
+    background: var(--blue);
     color: #fff;
     border-radius: 0.25rem;
     border: 0;
     font-size: 1rem;
     margin-top: 1.5rem;
     font-weight: 600;
-    transition: 0.3s;
+    transition: background-color 0.2s;
 
-    &:hover{
-        filter: brightness(0.9);
-        transition: 0.3s;
+    &:hover {
+      background-color: ${darken(0.2, `#5429CC`)};
+      transition: background-color 0.2s;
+    }
+  }
+`;
+
+export const TranscationTypeContainer = styled.form`
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+
+  button {
+    height: 4rem;
+    border: 1px solid #d7d7d7;
+    border-radius: 0.25rem;
+    background: #e7e9ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s;
+
+    &:nth-child(1):hover {
+      border-color: var(--green);
+      transition: border-color 0.3s;
+    }
+
+    &:nth-child(2):hover {
+      border-color: var(--red);
+      transition: border-color 0.3s;
+    }
+
+    img {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
+    span {
+      display: inline-block;
+      margin-left: 1rem;
+      font-size: 1rem;
+      color: var(--text-title);
     }
   }
 `;
