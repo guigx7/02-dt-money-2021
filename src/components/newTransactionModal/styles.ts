@@ -53,37 +53,51 @@ export const TranscationTypeContainer = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
+`;
 
-  button {
-    height: 4rem;
-    border: 1px solid #d7d7d7;
-    border-radius: 0.25rem;
-    background: #e7e9ee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+interface RadioBoxProps{
+  isActive: boolean;
+}
+
+export const RadioBox = styled.button <RadioBoxProps>`
+  height: 4rem;
+  border: 1px solid #d7d7d7;
+  border-radius: 0.25rem;
+  /* background: #e7e9ee; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s;
+
+  &:nth-child(1){
+    background: ${(props) => props.isActive ? 'rgba(18, 164, 84, 0.1)' : '#e7e9ee'};
+    border-color: ${(props) => props.isActive ? 'var(--green)' : 'transparent'};
+  }
+
+  &:nth-child(2){
+    background: ${(props) => props.isActive ? 'rgba(229, 46, 77, 0.1)' : '#e7e9ee'};
+    border-color: ${(props) => props.isActive ? 'var(--red)' : 'transparent'};
+  }
+
+  &:nth-child(1):hover {
+    border-color: var(--green);
     transition: border-color 0.3s;
+  }
 
-    &:nth-child(1):hover {
-      border-color: var(--green);
-      transition: border-color 0.3s;
-    }
+  &:nth-child(2):hover {
+    border-color: var(--red);
+    transition: border-color 0.3s;
+  }
 
-    &:nth-child(2):hover {
-      border-color: var(--red);
-      transition: border-color 0.3s;
-    }
+  img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
 
-    img {
-      width: 1.8rem;
-      height: 1.8rem;
-    }
-
-    span {
-      display: inline-block;
-      margin-left: 1rem;
-      font-size: 1rem;
-      color: var(--text-title);
-    }
+  span {
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 1rem;
+    color: var(--text-title);
   }
 `;
