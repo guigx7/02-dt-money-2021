@@ -57,7 +57,18 @@ export const TranscationTypeContainer = styled.form`
 
 interface RadioBoxProps{
   isActive: boolean;
+  activeColor: "green" | "red";
 }
+
+const colors = {
+ green: 'rgba(18, 164, 84, 0.1)',
+ red: 'rgba(229, 46, 77, 0.1)'
+};
+
+const borderColors = {
+  green: '#33cc95',
+  red: '#E52E4D'
+ };
 
 export const RadioBox = styled.button <RadioBoxProps>`
   height: 4rem;
@@ -69,7 +80,10 @@ export const RadioBox = styled.button <RadioBoxProps>`
   justify-content: center;
   transition: border-color 0.3s;
 
-  &:nth-child(1){
+  background: ${(props) => props.isActive ? colors[props.activeColor] : '#e7e9ee'};
+  border-color: ${(props) => props.isActive ? borderColors[props.activeColor] : 'transparent'};
+
+  /* &:nth-child(1){
     background: ${(props) => props.isActive ? 'rgba(18, 164, 84, 0.1)' : '#e7e9ee'};
     border-color: ${(props) => props.isActive ? 'var(--green)' : 'transparent'};
   }
@@ -77,7 +91,7 @@ export const RadioBox = styled.button <RadioBoxProps>`
   &:nth-child(2){
     background: ${(props) => props.isActive ? 'rgba(229, 46, 77, 0.1)' : '#e7e9ee'};
     border-color: ${(props) => props.isActive ? 'var(--red)' : 'transparent'};
-  }
+  } */
 
   &:nth-child(1):hover {
     border-color: var(--green);
