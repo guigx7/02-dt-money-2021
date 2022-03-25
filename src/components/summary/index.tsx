@@ -9,15 +9,41 @@ export function Summary() {
   const {transactions} = useContext(TransactionContext);
   console.log(transactions);
 
+  const summary = transactions.reduce((acc, transaction) => {
+    if(transaction.type === "deposit"){
+      acc.deposits += transaction.amount;
+      acc.total += transaction.amount;
+    }
+    else if(transaction.type === "withdraw"){
+      acc.withdraws += transaction.amount;
+      acc.total -= transaction.amount;
+    }
+
+    return acc;
+  }, {
+    deposits: 0,
+    withdraws: 0,
+    total: 0,
+  })
+
   return (
     <Container>
+      {/* total */}
+      <div className="highlight-background">
+        <header>
+          <p>Saldo</p>
+          <img src={totalImg} alt="Total" />
+        </header>
+        <strong>{summary.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
+      </div>
+
       {/* entradas */}
       <div>
         <header>
           <p>Entradas</p>
           <img src={incomeImg} alt="Entradas" />
         </header>
-        <strong>R$ 2000,00</strong>
+        <strong>{summary.deposits.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
       </div>
 
       {/* saidas */}
@@ -26,17 +52,10 @@ export function Summary() {
           <p>Saídas</p>
           <img src={outcomeImg} alt="Saídas" />
         </header>
-        <strong>R$ 500,00</strong>
+        <strong>{summary.withdraws.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
       </div>
 
-      {/* total */}
-      <div className="highlight-background">
-        <header>
-          <p>Saldo</p>
-          <img src={totalImg} alt="Total" />
-        </header>
-        <strong>R$ 1500,00</strong>
-      </div>
+      
     </Container>
   );
 }

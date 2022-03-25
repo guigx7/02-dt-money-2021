@@ -3,7 +3,6 @@ import Modal from "react-modal";
 import closeImg from "../../assets/close.svg";
 import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
-import { api } from "../../services/api";
 import { TransactionContext } from "../../TransactionsContext";
 import { Container, RadioBox, TranscationTypeContainer } from "./styles";
 
