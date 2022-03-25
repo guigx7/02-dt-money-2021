@@ -48,7 +48,7 @@ export const Container = styled.form`
   }
 `;
 
-export const TranscationTypeContainer = styled.form`
+export const TranscationTypeContainer = styled.div`
   margin: 1rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
