@@ -9,6 +9,12 @@ import light from "./styles/themes/light";
 import dark from "./styles/themes/dark";
 
 export function App() {
+  const [theme, setTheme] =useState(light)
+
+  const toggleTheme = () => {
+    setTheme(theme.title === 'light' ? dark : light)
+  }
+
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] =
     useState(false);
 
@@ -20,9 +26,9 @@ export function App() {
     setIsNewTransactionModalOpen(false);
   }
   return (
-    <ThemeProvider theme={dark}>
+    <ThemeProvider theme={theme}>
       <TransactionsProvider>
-        <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+        <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} toggleTheme={toggleTheme}/>
         <Dashboard />
         <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal} />
         <GlobalStyle />

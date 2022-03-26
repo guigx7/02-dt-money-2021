@@ -81,6 +81,12 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
+    .mode-toggle{
+        float: right;
+        margin-top: 1rem;
+        margin-right: 0.5rem;
+    }
+
     [disabled]{
         opacity: 0.6;
         cursor: not-allowed;
