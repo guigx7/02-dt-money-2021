@@ -16,7 +16,7 @@ createServer({
           title: "Desenvolvimento de site",
           type: "deposit",
           category: "Freelance",
-          amount: 1000,
+          amount: 1050,
           createdAt: new Date("2022-03-24"),
         },
         {
@@ -24,7 +24,7 @@ createServer({
           title: "Salário",
           type: "deposit",
           category: "Salário",
-          amount: 3000,
+          amount: 2980.55,
           createdAt: new Date("2022-03-24"),
         },
         {
@@ -32,7 +32,7 @@ createServer({
           title: "Aluguel",
           type: "withdraw",
           category: "Casa",
-          amount: 1500,
+          amount: 1530.99,
           createdAt: new Date("2022-03-25"),
         },
         {
@@ -40,7 +40,7 @@ createServer({
           title: "Mercado",
           type: "withdraw",
           category: "Compras",
-          amount: 600,
+          amount: 558.45,
           createdAt: new Date("2022-03-25"),
         },
       ],

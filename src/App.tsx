@@ -4,9 +4,13 @@ import { useState } from "react";
 import { NewTransactionModal } from "./components/newTransactionModal";
 import { GlobalStyle } from "./styles/global";
 import { TransactionsProvider } from "./hooks/useTransactions";
+import { ThemeProvider } from "styled-components";
+import light from "./styles/themes/light";
+import dark from "./styles/themes/dark";
 
 export function App() {
-  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
+  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] =
+    useState(false);
 
   function handleOpenNewTransactionModal() {
     setIsNewTransactionModalOpen(true);
@@ -16,11 +20,13 @@ export function App() {
     setIsNewTransactionModalOpen(false);
   }
   return (
-    <TransactionsProvider>
-      <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
-      <Dashboard />
-      <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal}/>
-      <GlobalStyle />
-    </TransactionsProvider>
+    <ThemeProvider theme={dark}>
+      <TransactionsProvider>
+        <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+        <Dashboard />
+        <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal} />
+        <GlobalStyle />
+      </TransactionsProvider>
+    </ThemeProvider>
   );
 }
