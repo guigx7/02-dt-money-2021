@@ -46,7 +46,10 @@ export function NewTransactionModal({isOpen, onRequestClose,}: NewTransactionMod
       <Container onSubmit={handleCreateNewTransaction}>
         <h2>Cadastrar Transação</h2>
         <input required placeholder="Título" value={title} onChange={event => setTitle(event.target.value)} />
-        <input required placeholder="Valor" value={amount} onChange={event => setAmount(Number(event.target.value))} type="text"/>
+        
+        {/* <input required placeholder="Valor" value={amount} onChange={event => setAmount(Number(event.target.value))} type="number"/> */}
+        <input required placeholder="Valor" value={amount === 0 ? "" : amount} onChange={event => setAmount(Number(event.target.value))} type="number"/>
+        
         <input required placeholder="Categoria" value={category} onChange={event => setCategory(event.target.value)} />
         <TranscationTypeContainer>
           <RadioBox type="button" onClick={() => setType('deposit')} isActive={type === 'deposit'} activeColor="green">
